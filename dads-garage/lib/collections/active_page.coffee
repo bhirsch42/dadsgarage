@@ -5,4 +5,4 @@
 
 @ActivePage.get = ->
   activePage = ActivePage.findOne({}, {sort: {time: -1, limit: 1}})
-  return Template[activePage.template]
+  return activePage

@@ -1,5 +1,8 @@
 Router.route '/', ->
-  @render ActivePage.get()
+  @render 'user_' + ActivePage.get().template
+
+Router.route '/stage', ->
+  @render 'stage_' + ActivePage.get().template
 
 Router.route '/admin', ->
-  @render Template.admin
+  @render 'admin'

@@ -1,0 +1,19 @@
+@green: darken(#3fdd4d, 10%); //rgba(63, 221, 77, 100)
+@yellow: #e6c229; //rgba(230, 194, 41, 100)
+@blue: #01baef; //rgba(1, 186, 239, 100)
+@orange: #f17105; //rgba(241, 113, 5, 100)
+@red: #d11149; //rgba(209, 17, 73, 100)
+
+.button {
+  cursor: pointer;
+  text-align: center;
+  padding: 15px;
+  background-color: @green;
+  display: inline-block;
+  color: white;
+  border-radius: 5px;
+
+  &:active {
+    background-color: darken(@green, 10%);
+  }
+}

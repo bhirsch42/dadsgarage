@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import '/dads-garage.less';
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.option {
+  cursor: pointer;
+  font-family: 'Lato';
+  width: 32vw;
+  height: 32vw;
+  max-width: 24vh;
+  max-height: 24vh;
+  margin: 2vw;
+  border-radius: 100%;
+  background-color: @red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+
+  &:active {
+    background-color: darken(@red, 10%);
+  }
+}

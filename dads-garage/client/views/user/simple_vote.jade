@@ -1,0 +1,6 @@
+template(name='user_simple_vote')
+  div= numOptions
+  .user-simple-vote
+    .options
+      each i in options
+        .option(data-value=i)= i

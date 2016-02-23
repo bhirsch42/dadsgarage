@@ -1,0 +1,9 @@
+template(name='admin')
+  .admin
+    +admin_nav
+    #content
+
+template(name='admin_nav')
+  .nav
+    each page in pages
+      .nav-item(data-name=page.templateName)= page.adminDisplay
