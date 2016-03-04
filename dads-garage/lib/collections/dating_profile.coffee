@@ -4,4 +4,7 @@
   DatingProfile.insert lName: lname, fName: fName, age: age
 
 @DatingProfile.getYoungest = ->
-  DatingProfile.
+  DatingProfile.find.sort({age: 1}).limit(1)
+
+@DatingProfile.getOldest = ->
+  DatingProfile.find.sort({age: -1}).limit(1)
