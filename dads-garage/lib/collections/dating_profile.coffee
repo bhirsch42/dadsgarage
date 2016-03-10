@@ -1,31 +1,42 @@
 @DatingProfile = new Mongo.Collection 'dating_profile'
 
-@DatingProfile.add = (lName, fName, age, occupation, homeCity, favDrink,
-favFood, favMusic, favTVShow) ->
-  DatingProfile.insert lName: lname, fName: fName, age: age,
-  occupation: occupation, homeCity: homeCity, favDrink: favDrink,
-  favFood: favFood,favMusic: favMusic, favTVShow: favTVShow
+@DatingProfile.add = (lName, fName, age, questions) ->
+  DatingProfile.insert lName: lName, fName: fName, age: age,
+  questions: questions
+  # [occupation,  homeCity,  favDrink, favFood, favMusic, favTVShow]
 
 @DatingProfile.getYoungest = ->
-  DatingProfile.find.sort({age: 1}).limit(1)
+  DatingProfile.findOne({}, {age: 1, limit: 1})
 
 @DatingProfile.getOldest = ->
-  DatingProfile.find.sort({age: -1}).limit(1)
+  DatingProfile.findOne({}, {age: -1, limit: 1})
 
 @DatingProfile.getRandomOccupation = ->
-  DatingProfile.find.sort({occupation: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[0]
 
 @DatingProfile.getRandomHomeCity = ->
-  DatingProfile.find.sort({homeCity: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[1]
 
 @DatingProfile.getRandomFavDrink = ->
-  DatingProfile.find.sort({favDrink: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[2]
 
 @DatingProfile.getRandomFavFood = ->
-  DatingProfile.find.sort({favFood: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[3]
 
 @DatingProfile.getRandomFavMusic = ->
-  DatingProfile.find.sort({favMusic: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[4]
 
 @DatingProfile.getRandomFavTVShow = ->
-  DatingProfile.find.sort({favTVShow: -1}).limit(-1).skip(rand()).next()
+  array = DatingProfile.find().fetch()
+  randomIndex = Math.floor(Math.random() * array.length)
+  element = array[randomIndex].questions[5]
