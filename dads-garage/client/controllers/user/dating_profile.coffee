@@ -17,4 +17,4 @@ if Meteor.isClient
       fave_music= $('input[name=fave_music]').val()
       fave_TV_show= $('input[name=fave_TV_show]').val()
       questions = [occupation, home_city, fave_drink, fave_food, fave_music, fave_TV_show]
-      dating_profile.add l_name, f_name, age, questions
+      DatingProfile.add l_name, f_name, age, questions
