@@ -18,3 +18,5 @@ if Meteor.isClient
       fave_TV_show= $('input[name=fave_TV_show]').val()
       questions = [occupation, home_city, fave_drink, fave_food, fave_music, fave_TV_show]
       DatingProfile.add l_name, f_name, age, questions
+      $('#form').empty()
+      Blaze.render(Template.user_dating_profile2,$('#form')[0])
