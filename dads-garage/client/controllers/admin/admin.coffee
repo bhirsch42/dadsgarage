@@ -7,6 +7,7 @@ if Meteor.isClient
         ['home', 'Home']
         ['school', 'School']
         ['simple_vote', 'Simple Vote']
+        ['music_grid', 'Music Grid']
       ]
       return ({templateName: p[0], adminDisplay: p[1]} for p in ps)
 
