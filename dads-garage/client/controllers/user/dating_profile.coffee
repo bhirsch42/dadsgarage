@@ -1,8 +1,4 @@
 if Meteor.isClient
-  Template.user_dating_profile.helpers
-    'options': ->
-      [1..SimpleVote.get().numOptions]
-
   Template.user_dating_profile.events
     'submit': (e) ->
       e.preventDefault()
