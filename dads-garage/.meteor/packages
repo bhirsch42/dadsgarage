@@ -26,3 +26,6 @@ flemay:less-autoprefixer
 percolate:velocityjs
 accounts-ui
 accounts-password
+peerlibrary:aws-sdk
+sorenpeterson:createjs
+mrt:cookies

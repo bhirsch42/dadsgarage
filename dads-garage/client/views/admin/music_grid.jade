@@ -1,0 +1,42 @@
+template(name='admin_music_grid')
+  h1 Music Grid
+    .button.show Show Music Grid
+  hr
+  +music_grid_monitor
+  hr
+  +music_grid_builder
+
+
+template(name='music_grid_builder')
+  .music-grid-builder-wrapper
+    .music-grid-builder-panel
+      .filters
+        div
+          input(placeholder='Filter', name='name_filter')
+        div
+          input(type='radio', name='position_filter', value='all', id='all')
+          label(for='all') All Songs
+        div
+          input(type='radio', name='position_filter', value='only_positioned', id='only_positioned')
+          label(for='only_positioned') Positioned Songs
+        div
+          input(type='radio', name='position_filter', value='only_not_positioned', id='only_not_positioned')
+          label(for='only_not_positioned') Unpositioned Songs
+      .song-list
+        each songs
+          .song(data-name=name)
+            .song-name= name
+    .grid-controls-wrapper
+      .song-canvas-controls
+        .button#remove Remove
+        .button#play Play
+        .button#pause Pause
+        .button#stop Stop
+      .music-grid-builder
+        canvas(width='400px', height='400px')
+
+template(name='music_grid_monitor')
+  .music-grid-monitor-wrapper
+    .button#clear-users Clear users
+    .music-grid-monitor
+      canvas(width='500px', height='500px')
