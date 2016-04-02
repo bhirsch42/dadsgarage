@@ -17,3 +17,10 @@ if Meteor.isServer
     if song.Key[song.Key.length-4..] == '.mp3'
       Song.add song.Key
 
+if Meteor.isClient
+  uid = Cookie.get 'dads-garage-uid'
+  if not uid
+    uid = User.insert {}
+    Cookie.set 'dads-garage-uid', uid
+
+  @userId = uid

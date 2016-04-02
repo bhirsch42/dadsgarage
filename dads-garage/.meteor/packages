@@ -27,4 +27,5 @@ percolate:velocityjs
 accounts-ui
 accounts-password
 peerlibrary:aws-sdk
-brentjanderson:buzz
+sorenpeterson:createjs
+mrt:cookies
