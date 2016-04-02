@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import '/dads-garage.less';
+
+.music-grid-builder-wrapper {
+  display: flex;
+
+  .music-grid-builder-panel {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+
+  .grid-controls-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .song-canvas-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+  }
+
+  .music-grid-builder {
+
+  }
+
+  .song-list {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid lighten(black, 10%);
+  }
+
+  .filters {
+    height: 100px;
+  }
+
+  .song {
+    border-bottom: 1px solid lighten(black, 20%);
+    padding: 5px;
+
+    &.selected {
+      background-color: @green;
+      color: white;
+    }
+  }
+
+  // div {
+  //   border: 1px solid black;
+  // }
+}
+
+.user-music-grid-wrapper {
+  font-family: 'Lato';
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-music-grid {
+  canvas {
+    border: 1px solid black;
+  }
+}
