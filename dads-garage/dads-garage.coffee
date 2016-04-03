@@ -18,9 +18,9 @@ if Meteor.isServer
       Song.add song.Key
 
 if Meteor.isClient
-  uid = Cookie.get 'dads-garage-uid'
-  if not uid
-    uid = User.insert {}
-    Cookie.set 'dads-garage-uid', uid
+  @UserId = Cookie.get 'dads-garage-uid'
+  if not @UserId or not User.findOne @UserId
+    @UserId = User.insert {}
+    Cookie.set 'dads-garage-uid', @UserId
 
-  @userId = uid
+  @CurrentUser = User.findOne @UserId

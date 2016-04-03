@@ -43,10 +43,8 @@ if Meteor.isClient
     ctx.fillText 'Calm', w/2, h-10
     ctx.strokeStyle = '#000000'
 
-    user = User.findOne userId
-
-    if user.musicPosition
-      CanvasUtils.drawNormCircle ctx, user.musicPosition.x, user.musicPosition.y, 10
+    if CurrentUser.musicPosition
+      CanvasUtils.drawNormCircle ctx, CurrentUser.musicPosition.x, CurrentUser.musicPosition.y, 10
 
   fixDeviceScaling = ->
     ctx = canvas.getContext '2d'
@@ -82,12 +80,11 @@ if Meteor.isClient
     drawSongCanvas()
 
   updateMusicPosition = (e) ->
-    user = User.findOne userId
     mousePos = getCanvasMousePosition e
     mousePos.x *= ratio
     mousePos.y *= ratio
-    user.musicPosition = mousePos
-    User.update user._id, user
+    CurrentUser.musicPosition = mousePos
+    User.update CurrentUser._id, CurrentUser
     drawSongCanvas()
 
   mouseDown = false
