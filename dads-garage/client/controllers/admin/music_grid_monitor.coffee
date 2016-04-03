@@ -42,15 +42,18 @@ if Meteor.isClient
     total.y /= users.count()
     average = total
 
-  updateMusic = ->
+  updateMusic = _.throttle ->
     songs = Song.find {position: {$ne:null}}
     closestSong = null
     songs.forEach (song) ->
       if not closestSong or dist(song.position, average) < dist(closestSong.position, average)
         closestSong = song
     if not activeSong or closestSong._id != activeSong._id
+      console.log 'played grid music'
       activeSong = closestSong
+      MyMusic.fadeTime = 3000
       MyMusic.playOnly activeSong
+  , 5000
 
   drawSongCanvas = ->
     songs = Song.find {position: {$ne:null}}

@@ -10,6 +10,6 @@ if Meteor.isClient
         $('.bees').addClass 'on'
         bees = true
 
-      user.bees = bees
-      User.update user._id, user
+      CurrentUser.bees = bees
+      User.update CurrentUser._id, CurrentUser
     , 20, true

@@ -7,7 +7,7 @@ if Meteor.isClient
 
   MyMusic.addedFileloadListener = false
 
-  MyMusic.fadeTime = 3000
+  MyMusic.fadeTime = 0
 
   MyMusic.initSong = (song) ->
     # songUrl = 'http://localhost:5757/' + $(e.target).closest('.song').find('.song-name').html()
