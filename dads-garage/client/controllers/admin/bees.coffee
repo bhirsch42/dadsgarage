@@ -5,7 +5,7 @@ if Meteor.isClient
     bees = User.find(bees: true).count()
     noBees = User.find(bees: false).count()
     console.log 'updateBees', bees, noBees
-    if bees > noBees
+    if bees >= noBees
       if playingSound
         return
       MyMusic.playOnly name: 'sounds/bees.mp3'
