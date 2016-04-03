@@ -24,3 +24,9 @@ if Meteor.isClient
     Cookie.set 'dads-garage-uid', uid
 
   @userId = uid
+  @user = User.findOne userId : userId
+  if not @user
+    User.insert userId : userId
+    @user = User.findOne userId : userId
+
+

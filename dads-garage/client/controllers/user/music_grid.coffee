@@ -82,7 +82,6 @@ if Meteor.isClient
     drawSongCanvas()
 
   updateMusicPosition = (e) ->
-    user = User.findOne userId
     mousePos = getCanvasMousePosition e
     mousePos.x *= ratio
     mousePos.y *= ratio

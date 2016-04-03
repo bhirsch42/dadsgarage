@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import '/dads-garage.less';
+
+.bees {
+  font-family: 'Lato';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .bees-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+
+  .bees-on {
+    display: none;
+  }
+
+  .bees-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 90vw;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: darken(@red, 10%);
+    .img {
+      width: 80%;
+      height: 80%;
+      z-index: 9999;
+      background-image: url('/small_bee.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .img.on {
+      display: none;
+      background-image: url('/bee.png');
+    }
+
+    &:after {
+      content: '';
+      width: 90vw;
+      height: 90vw;
+      border-radius: 100%;
+      background-color: lighten(@red, 10%);
+      position: absolute;
+      top: -10px;
+      left: 0;
+    }
+
+  }
+
+  &.on {
+    .bees-on {
+      display: block;
+    }
+    .bees-off {
+      display: none;
+    }
+    .img.on {
+      display: block;
+    }
+    .img.off {
+      display: none;
+    }
+    .bees-button {
+      background-color: darken(@green, 10%);
+      &:after {
+        background-color: lighten(@green, 10%);
+      }
+    }
+  }
+
+  .bees-button:active {
+    margin-top: 2px;
+    &:after {
+      top: 0px
+    }
+  }
+
+}
