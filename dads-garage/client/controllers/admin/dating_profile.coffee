@@ -3,7 +3,12 @@ if Meteor.isClient
     'click .button.show': ->
       ActivePage.set 'dating_profile'
 
-  Template.admin_dating_profile.helpers
     'click .button.oldest': ->
       $('#getOldest').empty()
-      $('#getOldest') = DatingProfile.getOldest()
+      $('#getOldest').html DatingProfile.getOldest()
+
+  Template.admin_dating_profile.helpers
+    'oldest': ->
+      oldest = DatingProfile.getOldest()
+      oldest.fName + ' ' + oldest.lName
+
