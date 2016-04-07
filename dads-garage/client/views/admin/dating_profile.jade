@@ -1,19 +1,31 @@
 template(name='admin_dating_profile')
   h1 Dating Profile
   .button.show Show Dating Profile
-  #getYoungest
-    .button.youngest Get Youngest
-  #getOldest
-    .button.oldest Get Oldest
-  #getRandomOccupation
-    .button.occupation Get Random Occupation
-  #getRandomHomeCity
-    .button.homeCity Get Random Home City
-  #getRandomFavDrink
-    .button.FavDrink Get Random Favourite Drink
-  #getRandomFavFood
-    .button.FavFood Get Random Favourite Food
-  #getRandomFavMusic
-    .button.FavMusic Get Random Favourite Music
-  #getRandomFavTVShow
-    .button.FavTVShow Get Random Favourite TV Show
+
+  div
+    span Youngest:
+    span= youngest
+  div
+    span Oldest:
+    span= oldest
+  div
+    span.button.occupation Get Random Occupation
+    span#getRandomOccupation
+  div
+    span.button.homeCity Get Random Home City
+    span#getRandomHomeCity
+  div
+    span.button.favDrink Get Random Favourite Drink
+    span#getRandomFavDrink
+  div
+    span.button.favFood Get Random Favourite Food
+    span#getRandomFavFood
+  div
+    span.button.favMusic Get Random Favourite Music
+    span#getRandomFavMusic
+  div
+    span.button.favMovieGenre Get Random Favourite Movie Genre
+    span#getRandomFavMovieGenre
+  div
+    span.button.favTVShow Get Random Favourite TV Show
+    span#getRandomFavTVShow
