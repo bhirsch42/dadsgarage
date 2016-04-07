@@ -5,4 +5,5 @@ if Meteor.isClient
 
   Template.admin_dating_profile.helpers
     'click .button.oldest': ->
-      person = DatingProfile.getOldest()
+      $('#getOldest').empty()
+      $('#getOldest') = DatingProfile.getOldest()
