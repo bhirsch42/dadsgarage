@@ -25,6 +25,7 @@ if Meteor.isClient
       $('#getRandomFavTVShow').html DatingProfile.getRandomFavTVShow()
 
 
+<<<<<<< HEAD
   Template.admin_dating_profile.helpers
     'youngest': ->
       youngest = DatingProfile.getYoungest()
@@ -32,3 +33,14 @@ if Meteor.isClient
     'oldest': ->
       oldest = DatingProfile.getOldest()
       oldest.fName + ' ' + oldest.lName
+=======
+    'click .button.oldest': ->
+      $('#getOldest').empty()
+      $('#getOldest').html DatingProfile.getOldest()
+
+  Template.admin_dating_profile.helpers
+    'oldest': ->
+      oldest = DatingProfile.getOldest()
+      oldest.fName + ' ' + oldest.lName
+
+>>>>>>> 4ba695b7af0ec221488f529dd71c48dd7ec208f4
