@@ -23,20 +23,32 @@ if Meteor.isClient
     'click .button.favTVShow': ->
       $('#getRandomFavTVShow').empty()
       $('#getRandomFavTVShow').html DatingProfile.getRandomFavTVShow()
-
+    'click .button.laugh': ->
+      $('#getRandomLaugh').empty()
+      $('#getRandomLaugh').html DatingProfile.getRandomLaugh()
+    'click .button.motherlyAdvice': ->
+      $('#getRandomMotherlyAdvice').empty()
+      $('#getRandomMotherlyAdvice').html DatingProfile.getRandomMotherlyAdvice()
+    'click .button.petPeeve': ->
+      $('#getRandomPetPeeve').empty()
+      $('#getRandomPetPeeve').html DatingProfile.getRandomPetPeeve()
+    'click .button.attractive': ->
+      $('#getRandomAttractive').empty()
+      $('#getRandomAttractive').html DatingProfile.getRandomAttractive()
+    'click .button.embarrassedAudience': ->
+      $('#getRandomEmbarrassedAudience').empty()
+      $('#getRandomEmbarrassedAudience').html DatingProfile.getRandomEmbarrassedAudience()
+    'click .button.colour': ->
+      $('#getRandomColour').empty()
+      $('#getRandomColour').html DatingProfile.getRandomColour()
+    'click .button.favFirstDate': ->
+      $('#getRandomFavFirstDate').empty()
+      $('#getRandomFavFirstDate').html DatingProfile.getRandomFavFirstDate()
 
   Template.admin_dating_profile.helpers
     'youngest': ->
       youngest = DatingProfile.getYoungest()
       youngest.fName + ' ' + youngest.lName
-    'oldest': ->
-      oldest = DatingProfile.getOldest()
-      oldest.fName + ' ' + oldest.lName
-    'click .button.oldest': ->
-      $('#getOldest').empty()
-      $('#getOldest').html DatingProfile.getOldest()
-
-  Template.admin_dating_profile.helpers
     'oldest': ->
       oldest = DatingProfile.getOldest()
       oldest.fName + ' ' + oldest.lName
