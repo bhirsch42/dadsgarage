@@ -7,3 +7,9 @@ if Meteor.isClient
       SimpleVote.add parseInt $('input.num-options').val()
       ActivePage.set 'simple_vote'
 
+    'click .button.stop-vote': ->
+      simpleVote = SimpleVote.get()
+      simpleVote.isOver = true
+      SimpleVote.update simpleVote._id, simpleVote
+
+

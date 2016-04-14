@@ -1,0 +1,8 @@
+{
+  "dadsgarage.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/dadsgarage",
+      "MONGO_OPLOG_URL": "..."
+    }
+  }
+}
