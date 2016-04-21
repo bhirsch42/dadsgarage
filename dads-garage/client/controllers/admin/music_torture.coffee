@@ -11,11 +11,12 @@ if Meteor.isClient
     'votes': ->
       results = SimpleVote.results()
       if results['1'] > results['2']
-        MyMusic.playMusic Song.findOne name: songName
-        console.log 'playMusic'
+        song = Song.findOne name: songName
+        console.log 'play music'
+        MyMusic.playMusic song
       else
+        console.log 'stop playing music'
         MyMusic.stopAllMusic()
-        console.log 'stopAllMusic'
       results['1']
 
   Template.admin_music_torture.created = ->

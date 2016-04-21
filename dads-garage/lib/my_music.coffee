@@ -17,7 +17,7 @@ if Meteor.isClient
       id: song.name
 
   MyMusic.isPlaying = (song) ->
-    return MyMusic.playingSongs.indexOf(song) != -1
+    return MyMusic.playingSongs.indexOf(song.name) != -1
 
   MyMusic.playMusic = (song) ->
     if song.name not in MyMusic.initializedSongs
@@ -25,7 +25,7 @@ if Meteor.isClient
       MyMusic.initSong song
       return
     if not MyMusic.isPlaying song
-      MyMusic.playingSongs.push song
+      MyMusic.playingSongs.push song.name
       SM.playMusic song.name, 0, MyMusic.fadeTime
 
   MyMusic.handleLoadComplete = (event) ->
