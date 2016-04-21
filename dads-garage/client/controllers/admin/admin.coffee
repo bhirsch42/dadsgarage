@@ -9,7 +9,7 @@ if Meteor.isClient
         ['simple_vote', 'Simple Vote']
         ['music_grid', 'Music Grid']
         ['bees', 'Bees']
-        ['take_photo', 'Take Photo']
+        ['music_torture', 'Music Torture']
       ]
       return ({templateName: p[0], adminDisplay: p[1]} for p in ps)
 
