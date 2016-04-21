@@ -8,6 +8,9 @@ if Meteor.isClient
       size = frac * (60 - 25) * 2 + 25
       size = size + 'vh'
       $('.circle-meter').css(height: size, width: size);
+      if frac > .5
+        $('.fa-music').addClass 'music-on'
+      else
+        $('.fa-music').removeClass 'music-on'
       results['1']
-
 
