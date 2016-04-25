@@ -5,9 +5,22 @@ if Meteor.isClient
     'click input[value=text]': ->
       
       question = $('input[name=question]').val()
+      #inject html
+      newContent = '<div>' + question + ' - text' + '</div>'
+      $('#questionsEntered').append newContent
+
       #Store data on server
-      #use for loop to pull data and inject html
       questions.add question, 'text'
+
+    'click input[value=image]': ->
+      
+      question = $('input[name=question]').val()
+      #inject html
+      newContent = '<div>' + question + ' - image' + '</div>'
+      $('#questionsEntered').append newContent
+
+      #Store data on server
+      questions.add question, 'image'
 
 
     'click .button.occupation': ->
