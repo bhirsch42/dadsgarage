@@ -7,6 +7,7 @@ if Meteor.isClient
         ['home', 'Home']
         ['school', 'School']
         ['simple_vote', 'Simple Vote']
+        ['dating_profile', 'Dating Profile']
         ['music_grid', 'Music Grid']
         ['bees', 'Bees']
         ['music_torture', 'Music Torture']
