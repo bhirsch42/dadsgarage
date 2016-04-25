@@ -1,0 +1,24 @@
+template(name='admin_questions')
+  .button.show Show Questions
+  .add-questions
+    div Question text:
+    textarea#question-text
+    br
+    br
+    div Question type:
+    | Text
+    input(type='radio', name='type', value='text')
+    | Photo
+    input(type='radio', name='type', value='photo')
+  .button#create-question Create Question
+  hr
+  .questions
+    each question
+      .question
+        div Type:
+        div= type
+        div Text:
+        div= text
+        .button.remove-question(data-question-id=_id) Remove Question
+      hr
+

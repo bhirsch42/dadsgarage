@@ -1,0 +1,13 @@
+template(name='user_questions')
+  .user-questions-wrapper
+    each question
+      .question-text= text
+      if typeIsText
+        input(type='text', data-question-id=_id)
+      if typeIsPhoto
+        input(type='file', data-question-id=_id)
+        img#preview
+      br
+      br
+      br
+    .button#submit Submit
