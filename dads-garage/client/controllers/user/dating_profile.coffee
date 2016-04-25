@@ -31,7 +31,6 @@ if Meteor.isClient
 if Meteor.isClient
   Template.user_dating_profile.onRendered ->
     for i in [0..Questions.getSize()-1]
-      console.log(i)
       question = Questions.getQuestions(i)
       newContent = '<div>' + question[0] + '<br>' + '<input type=\'' + question[1] + '\'>' + '</div>'
       $('#insideForm').append newContent
