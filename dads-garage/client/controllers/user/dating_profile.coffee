@@ -18,7 +18,7 @@ if Meteor.isClient
 if Meteor.isClient
   Template.user_dating_profile.onRendered ->
     size = Questions.getSize()-1
-    if size > 0
+    if size >= 0
       for i in [0..size]
         question = Questions.getQuestions(i)
 

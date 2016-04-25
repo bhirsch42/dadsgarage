@@ -8,10 +8,12 @@
   array = DatingProfile.find().fetch()
   size = array.length-1
   newArray = [[], []]
-  innerSize = array[0].answers.length-1
-  if size > 0 and innerSize > 0
-    for i in [0..innerSize]
-      for j in [0..size]
-        newArray[j] += array[j].answers[i] + ' '
+  
+  if size >= 0 
+    innerSize = array[0].answers.length-1
+    if innerSize >= 0
+      for i in [0..innerSize]
+        for j in [0..size]
+          newArray[j] += array[j].answers[i] + ' '
   console.log(newArray)
   element = newArray

@@ -20,7 +20,7 @@ if Meteor.isClient
       $('#getData').empty()
       x = DatingProfile.getData()
       size = x.length-1
-      if size > 0
+      if size >= 0
         newContent = ''
         for i in [0..size]
             y = x[i]
@@ -38,7 +38,7 @@ if Meteor.isClient
 if Meteor.isClient
   Template.admin_dating_profile.onRendered ->
     size = Questions.getSize()-1
-    if size > 0
+    if size >= 0
       for i in [0..size]
         question = Questions.getQuestions(i)
         newContent = '<div>' + question[0] + ' - ' + question[1]  + '</div>'
