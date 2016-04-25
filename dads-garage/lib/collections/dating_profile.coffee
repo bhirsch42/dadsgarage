@@ -5,11 +5,12 @@
   DatingProfile.insert answers: answers
 
 @DatingProfile.getData = ->
-  array = DatingProfile.find().fetch()
+  array = DatingProfile.find({}).fetch()
+  console.log(array)
   size = array.length-1
   newArray = [[], []]
-  
-  if size >= 0 
+
+  if size >= 0
     innerSize = array[0].answers.length-1
     if innerSize >= 0
       for i in [0..innerSize]
