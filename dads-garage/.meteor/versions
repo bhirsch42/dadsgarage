@@ -50,6 +50,7 @@ iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.7
 launch-screen@1.0.10
+lepozepo:s3@5.1.7
 less@2.5.7
 livedata@1.0.17
 localstorage@1.0.8
@@ -87,6 +88,7 @@ routepolicy@1.0.9
 service-configuration@1.0.8
 session@1.1.4
 sha@1.0.6
+simple:imgur@1.0.3
 sorenpeterson:createjs@0.0.2
 spacebars@1.0.10
 spacebars-compiler@1.0.10

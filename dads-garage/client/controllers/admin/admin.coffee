@@ -5,7 +5,7 @@ if Meteor.isClient
       ps = [
       # ['template_name', 'Name that shows in Admin Panel']
         ['home', 'Home']
-        ['school', 'School']
+        ['questions', 'Questions']
         ['simple_vote', 'Simple Vote']
         ['music_grid', 'Music Grid']
         ['bees', 'Bees']
