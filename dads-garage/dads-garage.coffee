@@ -9,4 +9,7 @@ if Meteor.isClient
     @UserId = User.insert {}
     Cookie.set 'dads-garage-uid', @UserId
 
-  @CurrentUser = User.findOne @UserId
+  console.log 'UserId', UserId
+  console.log 'User.findOne(UserId)', User.findOne(UserId)
+  @CurrentUser = User.findOne(UserId)
+  console.log 'CurrentUser', CurrentUser
