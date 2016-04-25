@@ -2,26 +2,17 @@ if Meteor.isClient
   Template.admin_dating_profile.events
     'click .button.show': ->
       ActivePage.set 'dating_profile'
-    'click input[value=text]': ->
-      
+    'click input[value=text]': ->      
       question = $('input[name=question]').val()
-      #inject html
       newContent = '<div>' + question + ' - text' + '</div>'
       $('#questionsEntered').append newContent
+      Questions.add question, 'text'
 
-      #Store data on server
-      questions.add question, 'text'
-
-    'click input[value=image]': ->
-      
+    'click input[value=image]': ->      
       question = $('input[name=question]').val()
-      #inject html
       newContent = '<div>' + question + ' - image' + '</div>'
       $('#questionsEntered').append newContent
-
-      #Store data on server
-      questions.add question, 'image'
-
+      Questions.add question, 'file'
 
     'click .button.occupation': ->
       $('#getRandomOccupation').empty()
@@ -73,3 +64,11 @@ if Meteor.isClient
     'oldest': ->
       oldest = DatingProfile.getOldest()
       oldest.fName + ' ' + oldest.lName
+
+if Meteor.isClient
+  Template.admin_dating_profile.onRendered ->
+    for i in [0..Questions.getSize()-1]
+      question = Questions.getQuestions(i)
+      newContent = '<div>' + question[0] + ' - ' + question[1]  + '</div>'
+      $('#questionsEntered').append newContent
+      Questions.remove(Questions.find().fetch())

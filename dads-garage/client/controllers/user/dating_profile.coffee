@@ -27,3 +27,11 @@ if Meteor.isClient
       DatingProfile.add l_name, f_name, age, questions
       $('#form').empty()
       Blaze.render(Template.user_dating_profile2,$('#form')[0])
+
+if Meteor.isClient
+  Template.user_dating_profile.onRendered ->
+    for i in [0..Questions.getSize()-1]
+      console.log(i)
+      question = Questions.getQuestions(i)
+      newContent = '<div>' + question[0] + '<br>' + '<input type=\'' + question[1] + '\'>' + '</div>'
+      $('#insideForm').append newContent
