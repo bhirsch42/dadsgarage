@@ -2,6 +2,12 @@ if Meteor.isClient
   Template.admin_dating_profile.events
     'click .button.show': ->
       ActivePage.set 'dating_profile'
+    'click input[value=text]': ->
+      console.log(document.getElementsByName("question")[0].value)
+      #Store data on server
+
+
+
     'click .button.occupation': ->
       $('#getRandomOccupation').empty()
       $('#getRandomOccupation').html DatingProfile.getRandomOccupation()
