@@ -68,6 +68,5 @@ if Meteor.isClient
 if Meteor.isClient
   Template.admin_dating_profile.onRendered ->
     for i in [0..Questions.getSize()-1]
-      Questions.remove(Questions.find().fetch())
       question = Questions.getQuestions(i)
       newContent = '<div>' + question[0] + ' - ' + question[1]  + '</div>'
