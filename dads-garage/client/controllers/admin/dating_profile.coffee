@@ -7,12 +7,14 @@ if Meteor.isClient
       newContent = '<div>' + question + ' - text' + '</div>'
       $('#questionsEntered').append newContent
       Questions.add question, 'text'
+      $('input[value=text]').empty()
 
     'click input[value=image]': ->      
       question = $('input[name=question]').val()
       newContent = '<div>' + question + ' - image' + '</div>'
       $('#questionsEntered').append newContent
       Questions.add question, 'file'
+      $('input[value=image]').empty()
 
     'click .button.occupation': ->
       $('#getRandomOccupation').empty()
@@ -67,6 +69,9 @@ if Meteor.isClient
 
 if Meteor.isClient
   Template.admin_dating_profile.onRendered ->
-    for i in [0..Questions.getSize()-1]
-      question = Questions.getQuestions(i)
-      newContent = '<div>' + question[0] + ' - ' + question[1]  + '</div>'
+    size = Questions.getSize()-1
+    if size > 0
+      for i in [0..size]
+        question = Questions.getQuestions(i)
+        newContent = '<div>' + question[0] + ' - ' + question[1]  + '</div>'
+        $('#questionsEntered').append newContent
