@@ -1,6 +1,5 @@
 if Meteor.isClient
   activeSong = null
-  mouseDown = false
   canvas = null
   average = null
 
@@ -24,20 +23,13 @@ if Meteor.isClient
     y = a.y - b.y
     return Math.sqrt x * x + y * y
 
-  getCanvasMousePosition = (e) ->
-    mx = e.clientX
-    my = e.clientY
-    rect = canvas.getBoundingClientRect()
-    cx = rect.left
-    cy = rect.top
-    {x: (mx - cx) / canvas.width, y: (my - cy) / canvas.height}
 
   updateAverage = ->
-    users = User.find {musicPosition: {$ne:null}}
+    users = MusicPosition.find {}
     total = {x: 0.0, y: 0.0}
     users.forEach (user) ->
-      total.x += user.musicPosition.x
-      total.y += user.musicPosition.y
+      total.x += user.x
+      total.y += user.y
     total.x /= users.count()
     total.y /= users.count()
     average = total
@@ -57,31 +49,12 @@ if Meteor.isClient
 
   drawSongCanvas = ->
     songs = Song.find {position: {$ne:null}}
-    users = User.find {musicPosition: {$ne:null}}
 
     w = canvas.width
     h = canvas.height
     ctx = canvas.getContext '2d'
 
     CanvasUtils.clear ctx
-
-    ctx.font = '20px Lato'
-    ctx.fillStyle = '#888888'
-    ctx.textAlign = 'left'
-    ctx.fillText 'Sad', 10, h/2
-    ctx.textAlign = 'right'
-    ctx.fillText 'Happy', w-10, h/2
-    ctx.textAlign = 'center'
-    ctx.fillText 'Intense', w/2, 24
-    ctx.fillText 'Calm', w/2, h-10
-
-    ctx.strokeStyle = '#01baef'
-    users.forEach (user) ->
-      CanvasUtils.drawNormCircle ctx, user.musicPosition.x, user.musicPosition.y, 2
-
-    ctx.strokeStyle = '#d11149'
-    if average
-      CanvasUtils.drawNormCircle ctx, average.x, average.y, 2
 
     ctx.strokeStyle = '#000000'
     voronoi = new Voronoi()
@@ -95,6 +68,15 @@ if Meteor.isClient
       ctx.lineTo edge.vb.x * ctx.canvas.width, edge.vb.y * ctx.canvas.height
     ctx.stroke()
 
+    MusicPosition.find({}).forEach (pos) ->
+      $('#' + pos._id).css
+        top  : (pos.y * @$('.user-music-grid').height()) + 'px'
+        left : (pos.x * @$('.user-music-grid').width()) + 'px'
+    $('#average').css
+      top  : (average.y * @$('.user-music-grid').height()) + 'px'
+      left : (average.x * @$('.user-music-grid').width()) + 'px'
+
+
   update = ->
     updateAverage()
     drawSongCanvas()
@@ -106,7 +88,7 @@ if Meteor.isClient
     update()
 
   Template.music_grid_monitor.created = ->
-    User.find({musicPosition: {$ne:null}}).observe
+    MusicPosition.find({}).observe
       'added': ->
         if canvas
           update()
@@ -116,7 +98,9 @@ if Meteor.isClient
 
   Template.music_grid_monitor.events
     'click #clear-users': ->
-      User.find({}).forEach (user) ->
-        user.musicPosition = null
-        User.update user._id, user
-        drawSongCanvas()
+      MusicPosition.find({}).forEach (pos) ->
+        MusicPosition.remove pos._id
+
+  Template.music_grid_monitor.helpers
+    'position': ->
+      MusicPosition.find {}

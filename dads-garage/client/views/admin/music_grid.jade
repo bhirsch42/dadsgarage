@@ -36,7 +36,19 @@ template(name='music_grid_builder')
         canvas(width='400px', height='400px')
 
 template(name='music_grid_monitor')
+  .button#clear-users Clear users
   .music-grid-monitor-wrapper
-    .button#clear-users Clear users
     .music-grid-monitor
       canvas(width='500px', height='500px')
+    .user-music-grid.monitor
+      .grid-label#happy
+        span Happy
+      .grid-label#sad
+        span Sad
+      .grid-label#calm
+        span Calm
+      .grid-label#intense
+        span Intense
+      each position
+        .point(id=_id)
+      .point#average
