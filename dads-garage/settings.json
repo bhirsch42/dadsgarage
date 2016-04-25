@@ -1,7 +1,0 @@
-{
-  "galaxy.meteor.com": {
-    "env": {
-      "MONGO_URL": "mongodb://bhirsch42:dadman@ds023550.mlab.com:23550/dadsgarage"
-    }
-  }
-}
