@@ -1,7 +1,7 @@
 @SimpleVote = new Mongo.Collection 'simple_vote'
 
 @SimpleVote.add = (numOptions) ->
-  SimpleVote.insert numOptions: numOptions, time: Date.now()
+  SimpleVote.insert numOptions: numOptions, time: Date.now(), isOver: false
 
 @SimpleVote.get = ->
   simpleVote = SimpleVote.findOne({}, {sort: {time: -1, limit: 1}})

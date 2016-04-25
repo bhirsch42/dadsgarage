@@ -5,6 +5,8 @@ if Meteor.isClient
 
   Template.user_simple_vote.events
     'click .option': (e) ->
-      value = $(e.target).data 'value'
-      SimplePick.add value, SimpleVote.get()._id
-
+      $target = $(e.target)
+      value = $target.data 'value'
+      SimplePick.add UserId, value, SimpleVote.get()._id
+      $('.selected').removeClass 'selected'
+      $target.addClass 'selected'

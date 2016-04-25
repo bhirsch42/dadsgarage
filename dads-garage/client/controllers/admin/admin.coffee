@@ -8,6 +8,9 @@ if Meteor.isClient
         ['school', 'School']
         ['simple_vote', 'Simple Vote']
         ['dating_profile', 'Dating Profile']
+        ['music_grid', 'Music Grid']
+        ['bees', 'Bees']
+        ['music_torture', 'Music Torture']
       ]
       return ({templateName: p[0], adminDisplay: p[1]} for p in ps)
 

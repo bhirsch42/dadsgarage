@@ -1,3 +1,13 @@
 template(name='stage_simple_vote')
   .stage-simple-vote
-    div= results
+    each results
+      .result
+        .result-key
+          span= key
+        .result-val= val
+        .bar(id=key)
+          .result-val= val
+
+template(name='stage_simple_vote_done')
+  .stage-simple-vote-done
+    span= result
