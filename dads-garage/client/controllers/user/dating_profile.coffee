@@ -1,5 +1,5 @@
 if Meteor.isClient
-  @Questions = new Mongo.Collection 'questions'
+  # @Questions = new Mongo.Collection 'questions'
   Template.user_dating_profile.events
     'submit': (e) ->
       e.preventDefault()

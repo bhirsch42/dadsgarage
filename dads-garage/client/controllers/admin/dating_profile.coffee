@@ -3,9 +3,11 @@ if Meteor.isClient
     'click .button.show': ->
       ActivePage.set 'dating_profile'
     'click input[value=text]': ->
-      console.log(document.getElementsByName("question")[0].value)
+      
+      question = $('input[name=question]').val()
       #Store data on server
-
+      #use for loop to pull data and inject html
+      questions.add question, 'text'
 
 
     'click .button.occupation': ->
