@@ -19,11 +19,12 @@ if Meteor.isClient
   Template.admin_music_torture.helpers
     'votes': ->
       results = SimpleVote.results()
-      if results['1'] > results['2']
+      yesFrac = 1.0 * results['1'] / (results[1] + results[2])
+      if yesFrac > .5
         song = Song.findOne name: songName
         console.log 'play music'
         MyMusic.playMusic song
-      else
+      if yesFrac < .3
         console.log 'stop playing music'
         MyMusic.stopAllMusic()
       results['1']

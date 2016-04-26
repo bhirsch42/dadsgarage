@@ -14,6 +14,7 @@ if Meteor.isClient
 
       reader = new FileReader()
       reader.onload = (e) ->
+        $('#preview').attr('src', e.target.result)
         Imgur.upload {apiKey: 'fa756eb4cda199f', image: e.target.result}, (error, data) ->
           console.log error, data
       reader.readAsDataURL files[0]
