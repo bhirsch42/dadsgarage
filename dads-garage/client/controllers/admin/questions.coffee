@@ -2,6 +2,20 @@ if Meteor.isClient
   Template.admin_questions.helpers
     question: ->
       Question.find {}
+    'count': (questionId) ->
+      QuestionAndAnswer.getCount(questionId)
+    'entries': (questionId) ->
+      array = QuestionAndAnswer.get(questionId)
+      text = []
+      #int i;
+      i = 0
+      while i < array.length
+        text += array[i].answer + ', '
+        i++
+      text
+
+
+
 
   Template.admin_questions.events
     'click .button.show': ->

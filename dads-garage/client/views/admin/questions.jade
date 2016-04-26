@@ -19,6 +19,10 @@ template(name='admin_questions')
         div= type
         div Text:
         div= text
-        .button.remove-question(data-question-id=_id) Remove Question
-      hr
-
+        span Count:
+        span= count(_id)
+        br
+        span Entries:
+        span= entries(_id)
+      .button.remove-question(data-question-id=_id) Remove Question
+  hr

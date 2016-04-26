@@ -8,3 +8,9 @@
 
 @QuestionAndAnswer.add = (userId, questionId, answer) ->
   QuestionAndAnswer.insert userId: userId, questionId: questionId, answer: answer, created: Date.now()
+
+@QuestionAndAnswer.get = (questionId) ->
+  element = QuestionAndAnswer.find({questionId: questionId}).fetch()
+
+@QuestionAndAnswer.getCount = (questionId) ->
+  element = QuestionAndAnswer.find({questionId: questionId}).count()
