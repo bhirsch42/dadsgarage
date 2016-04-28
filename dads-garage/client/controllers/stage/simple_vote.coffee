@@ -21,9 +21,9 @@ if Meteor.isClient
             maxVal = result.val
             maxKey = result.key
         $('.stage-simple-vote').empty()
-        $('.stage-simple-vote').append('<div id=\'done\'>' + maxKey + '</div>')
+        $('.stage-simple-vote').append('<div id=\'simple-vote-done\'>' + maxKey + '</div>')
       else
-        $('#done').remove()
+        $('#simple-vote-done').remove()
 
   # Template.stage_simple_vote.rendered = ->
   #   SimpleVote.find({}).observe

@@ -9,6 +9,9 @@ if Meteor.isClient
       simpleVote.isOver = true
       SimpleVote.update simpleVote._id, simpleVote
 
+    'click .show-home': ->
+      ActivePage.set 'home'
+
   Template.admin_simple_vote.helpers
     button: ->
       [1..6].map (i) ->
