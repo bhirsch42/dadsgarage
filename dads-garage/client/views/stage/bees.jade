@@ -1,4 +1,14 @@
 template(name='stage_bees')
-  .stage-bees
-    .bee-bar
-    .bee-limit
+  .stage-music-torture
+    .outer-ring-wrapper
+      .outer-ring
+    .circle-meter-wrapper
+      .circle-meter
+        .inner-ring
+    .icon-wrapper
+      img.fa-music(src='https://s3.amazonaws.com/dads-garage-music/pictures/Bee-PNG-8.png')
+    .count= update
+    .bee-overlay
+      each range
+        .bee-wrapper
+          img.bee(src='https://s3.amazonaws.com/dads-garage-music/pictures/Bee-PNG-8.png')
