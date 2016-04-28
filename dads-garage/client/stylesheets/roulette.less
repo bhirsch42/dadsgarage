@@ -1,0 +1,38 @@
+.stage-roulette-wrapper {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .person {
+    font-size: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+      max-width: 30vw;
+      max-height: 80vh;
+    }
+
+    transform: translate(100vw, 0);
+    &.pass {
+      transform: translate(-100vw, 0);
+      transition: all 1s linear;
+    }
+
+    &.stop {
+      transform: translate(0vw, 0);
+      transition: all 1s ease;
+    }
+
+  }
+
+}

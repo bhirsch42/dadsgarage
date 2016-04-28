@@ -10,6 +10,7 @@ if Meteor.isClient
         ['music_grid', 'Music Grid']
         ['bees', 'Bees']
         ['music_torture', 'Music Torture']
+        ['roulette', 'Roulette']
       ]
       return ({templateName: p[0], adminDisplay: p[1]} for p in ps)
 
