@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400);
+@import '/dads-garage.less';
+
+.user-questions-wrapper {
+  font-family: 'Lato';
+  padding: 5vw;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+img.preview {
+  max-width: 90vw;
+}
+
+input[type=text] {
+  font-size: 1em;
+  padding: 5px;
+  margin-top: 5px;
+  width: 80vw;
+}
+
+input[type=file] {
+  position: relative;
+  font-size: 1em;
+  margin: 15px;
+  margin-bottom: 50px;
+  &:after {
+    display: block;
+    content: 'Upload Photo';
+    font-family: 'Lato';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80vw;
+    height: 50px;
+    background-color: @yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    border-radius: 5px;
+    transform: scale(1.05);
+  }
+}
