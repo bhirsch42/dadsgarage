@@ -6,3 +6,6 @@ Router.route '/stage', ->
 
 Router.route '/admin', ->
   @render 'admin'
+
+Router.route '/performer', ->
+  @render 'performer'

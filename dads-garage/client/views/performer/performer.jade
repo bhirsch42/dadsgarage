@@ -1,0 +1,14 @@
+template(name='performer')
+  .performer-wrapper
+    .button-panel
+      each question
+        .button(data-question-id=_id)= text
+    hr
+    #content
+
+template(name='answer_list')
+  .answer-list-wrapper
+    each answer
+      .answer
+        div= answer
+        img(src=answer)
