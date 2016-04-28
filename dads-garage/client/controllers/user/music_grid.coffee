@@ -10,8 +10,8 @@ if Meteor.isClient
     else if e.originalEvent.changedTouches[0]
       e = e.originalEvent.changedTouches[0]
       return {
-        x: e.clientX - $('.user-music-grid').offset().left
-        y: e.clientY - $('.user-music-grid').offset().top
+        x: e.pageX - $('.user-music-grid').offset().left
+        y: e.pageY - $('.user-music-grid').offset().top
       }
 
   drawSongCanvas = ->
@@ -24,17 +24,14 @@ if Meteor.isClient
 
   updateMusicPosition = (e) ->
     mousePos = getMousePosition e
-    console.log mousePos
     mousePos.x /= $('.user-music-grid').width()
     mousePos.y /= $('.user-music-grid').height()
-    console.log mousePos
     MusicPosition.add UserId, mousePos.x, mousePos.y
     drawSongCanvas()
 
   mouseDown = false
   Template.user_music_grid.events
     'mousedown .user-music-grid, touchstart .user-music-grid': (e) ->
-      console.log 'touchevent', e
       mouseDown = true
       updateMusicPosition e
 

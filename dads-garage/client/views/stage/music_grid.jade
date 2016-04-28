@@ -1,2 +1,15 @@
 template(name='stage_music_grid')
-  | STAGE Music Grid
+  .stage-music-grid-wrapper
+    .stage-music-grid
+      .grid-label#happy
+        span Happy
+      .grid-label#sad
+        span Sad
+      .grid-label#calm
+        span Calm
+      .grid-label#intense
+        span Intense
+      each position
+        .point(id=_id)
+          img(src=imageLink)
+      .point#average
