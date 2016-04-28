@@ -1,0 +1,20 @@
+template(name='user_questions')
+  .user-questions-wrapper
+    
+    h1 Welcome to Dad's Garage!
+    h4 While you are waiting for the show to start, please fill out these questions.
+    //- | <br><br>
+    h5 Your answers may be used during the show!
+    //- | <br><br>
+    
+    each question
+      .question-text= text
+      if typeIsText
+        input(type='text', data-question-id=_id)
+      if typeIsPhoto
+        input(type='file', data-question-id=_id)
+        img#preview
+      br
+      br
+      br
+    .button#submit Submit
