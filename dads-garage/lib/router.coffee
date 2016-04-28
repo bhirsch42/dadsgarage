@@ -9,3 +9,6 @@ Router.route '/admin', ->
 
 Router.route '/performer', ->
   @render 'performer'
+
+Router.route '/markov', ->
+  @render 'markov'

@@ -38,10 +38,11 @@ if Meteor.isClient
 
 
         $('.user-questions-wrapper').empty()
-        $('.user-questions-wrapper').html("Thank you!")
-        setTimeout ->
-          $parent = $('.user-questions-wrapper')
-          $parent.empty()
-          Blaze.render Template['user_home'], $parent[0]
-        , 5000
+        $(window).scrollTop 0
+        $('.user-questions-wrapper').html("<img src=\"logo_dads.png\"><br><br><div>Thanks! There will be more cool stuff here during the show.</div>")
+        # setTimeout ->
+        #   $parent = $('.user-questions-wrapper')
+        #   $parent.empty()
+        #   Blaze.render Template['user_home'], $parent[0]
+        # , 5000
 
